@@ -8,7 +8,8 @@ use App\Models\Page;
 class PageController extends Controller
 {
     public function index(){
-        return view('home');
+        $data = ['data' => 'content asd'];
+        return view('home', $data);
     }
     public function pages(){
 
