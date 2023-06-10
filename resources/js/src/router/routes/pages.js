@@ -37,7 +37,7 @@ export default [
       ],
     }
   },
-  {
+  /*{
     path: '/auto-reply',
     name: 'auto-reply',
     component: () => import('@/views/error/Blank.vue'),
@@ -100,7 +100,7 @@ export default [
         },
       ],
     }
-  },
+  },*/
   {
     path: '/login',
     name: 'auth-login',
@@ -112,7 +112,7 @@ export default [
       pageTitle: 'Login Pengguna',
     },
   },
-  {
+  /*{
     path: '/register',
     name: 'auth-register',
     component: () => import('@/views/pages/Register.vue'),
@@ -122,7 +122,7 @@ export default [
       redirectIfLoggedIn: true,
       pageTitle: 'Registrasi Pengguna',
     },
-  },
+  },*/
   {
     path: '/logout',
     name: 'logout',
@@ -138,7 +138,7 @@ export default [
     component: () => import('@/views/error/Error404.vue'),
     meta: {
       layout: 'full',
-      resource: 'Web',
+      resource: 'Auth',
       action: 'read',
       pageTitle: 'Laman tidak ditemukan',
     },
@@ -149,7 +149,7 @@ export default [
     component: () => import('@/views/error/NotAuthorized.vue'),
     meta: {
       layout: 'full',
-      resource: 'Web',
+      resource: 'Auth',
       action: 'read',
       pageTitle: 'Akses Terbatas! 🔐',
     },

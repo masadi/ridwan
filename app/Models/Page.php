@@ -9,9 +9,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 class Page extends Model
 {
     use HasFactory, Sluggable;
-    
     protected $guarded = [];
-    
     public function sluggable(): array
     {
         return [

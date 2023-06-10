@@ -26,9 +26,6 @@
             <b-card-title class="mb-1 font-weight-bold" title-tag="h1">
               <b-img :src="logoUrl" style="height:28px" /> {{app.name}}
             </b-card-title>
-            <b-card-sub-title sub-title-text-variant="black">
-              Versi {{app.version}}
-            </b-card-sub-title>
             <b-card-text class="my-1">
               Silahkan login untuk dapat mengakses Aplikasi
             </b-card-text>
@@ -201,7 +198,7 @@ export default {
               localStorage.setItem('userData', JSON.stringify(userData.user))
               this.$ability.update(userData.user.ability)
               this.show = true
-              var replace = '/';
+              var replace = '/dashboard';
               this.$router.replace(replace).then(() => {
                 this.$toast({
                   component: ToastificationContent,

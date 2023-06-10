@@ -39,10 +39,9 @@ const router = new VueRouter({
 router.beforeEach((to, _, next) => {
   const isLoggedIn = isUserLoggedIn()
   const title = to.meta.pageTitle
+  document.title = process.env.MIX_APP_NAME
   if (title) {
-    document.title = title +' | e-Rapor SMK'
-  } else {
-    document.title = 'e-Rapor SMK'
+    document.title = `${title} | ${document.title}`
   }
   if (!canNavigate(to)) {
     // Redirect to login if not logged in

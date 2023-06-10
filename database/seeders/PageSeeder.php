@@ -32,14 +32,17 @@ class PageSeeder extends Seeder
             ],
         );
         if(!$user->hasRole('admin')){
-            $user->attachRole($role);
+            $user->addRole($role);
         }
         $find = Page::first();
         if(!$find){
             Page::create([
                 'title' => 'Home',
-                'icon' => 'home',
                 'content' => 'Home Content',
+            ]);
+            Page::create([
+                'title' => 'About',
+                'content' => 'About Content',
             ]);
         }
     }

@@ -29,9 +29,9 @@
     <strong>We're sorry but {{config('app.name')}} doesn't work properly without
       JavaScript enabled. Please enable it to continue.</strong>
   </noscript>
-  <div id="loading-bg">
+  <div id="loading-bg-salah">
     <div class="loading-logo">
-      <img src="{{ asset('logo-small.png') }}" alt="Logo" />
+      <img src="{{ asset('logo.png') }}" alt="Logo" />
     </div>
     <div class="loading">
       <div class="effect-1 effects"></div>

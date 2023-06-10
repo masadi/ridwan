@@ -16,40 +16,9 @@
             <strong>Loading...</strong>
           </div>
         </template>
-        <template v-slot:cell(status)="row">
-          <a @click="getDetil(row.item, 'status')" id="status">
-            <b-icon-shield-check variant="success" font-scale="1.5" v-if="row.item.status" />
-            <b-icon-shield-x variant="danger" font-scale="1.5" v-else />
-          </a>
-          <b-tooltip target="status" triggers="hover">
-            Check your Device Connection
-          </b-tooltip>
-        </template>
         <template v-slot:cell(actions)="row">
-          <a @click="getDetil(row.item, 'scan')" id="scan"><b-icon-upc-scan variant="warning" font-scale="1.5" />&nbsp;&nbsp;</a>
-          <a @click="getDetil(row.item, 'edit')" id="edit"><b-icon-pencil-square variant="success" font-scale="1.5" />&nbsp;&nbsp;</a>
-          <!--a @click="getDetil(row.item, 'webhook')" id="webhook"><b-icon-link variant="info" font-scale="1.5" /></a-->
-          <a @click="getDetil(row.item, 'delete')" id="delete"><b-icon-trash variant="danger" font-scale="1.5" /></a>
-          <b-tooltip target="scan" triggers="hover">
-            Scan Your Device on Whatsapp QR Code
-          </b-tooltip>
-          <b-tooltip target="edit" triggers="hover">
-            Update Data
-          </b-tooltip>
-          <b-tooltip target="webhook" triggers="hover">
-            Copy Webhook URL
-          </b-tooltip>
-          <b-tooltip target="delete" triggers="hover">
-            Delete Data
-          </b-tooltip>
-        </template>
-        <template v-slot:cell(user)="row">
-          <template v-if="cekPass(row.item.user.password, row.item.user.default_password)">
-            {{row.item.user.default_password}}
-          </template>
-          <template v-else>
-            <b-badge variant="success">Custom</b-badge>
-          </template>
+          <a @click="getDetil(row.item, 'edit')"><b-icon-pencil-square variant="success" font-scale="1.5" />&nbsp;&nbsp;</a>
+          <a @click="getDetil(row.item, 'delete')"><b-icon-trash variant="danger" font-scale="1.5" /></a>
         </template>
       </b-table>
     </b-overlay>

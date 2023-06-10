@@ -4,20 +4,18 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Laratrust\Traits\HasRolesAndPermissions;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Laratrust\Traits\LaratrustUserTrait;
-use App\Traits\Uuid;
 use Carbon\Carbon;
 
 class User extends Authenticatable
 {
-    use LaratrustUserTrait;
     use HasApiTokens;
     use HasFactory;
     use Notifiable;
-    //use Uuid;
+    use HasRolesAndPermissions;
     //public $incrementing = false;
     //public $keyType = 'string';
 	//protected $primaryKey = 'user_id';

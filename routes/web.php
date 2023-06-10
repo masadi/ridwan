@@ -15,6 +15,6 @@ use App\Http\Controllers\PageController;
 */
 Route::get('/', [PageController::class, 'index']);
 Route::group(['prefix' => 'p'], function () {
-    Route::get('/{any}', [PageController::class, 'pages']);
+    Route::get('/{slug}', [PageController::class, 'pages']);
 });
 Route::get('/{any}', [ApplicationController::class, 'index'])->where('any', '.*');

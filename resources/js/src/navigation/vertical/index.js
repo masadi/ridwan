@@ -13,7 +13,7 @@ export default [
         resource: 'Web',
         action: 'read',
     },
-    {
+    /*{
         icon: 'share',
         route: 'auto-reply',
         title: 'Auto reply',
@@ -40,7 +40,7 @@ export default [
         title: 'Pricing',
         resource: 'Web',
         action: 'read',
-    },
+    },*/
     {
         icon: 'right-to-bracket',
         route: 'logout',

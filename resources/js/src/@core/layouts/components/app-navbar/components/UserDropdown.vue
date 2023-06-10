@@ -80,9 +80,12 @@ export default {
 
       // Reset ability
       this.$ability.update(initialAbility)
-
+      this.toHome()
       // Redirect to login page
-      this.$router.push({ name: 'auth-login' })
+      //this.$router.replace('/')
+    },
+    toHome() {
+      window.location.assign(process.env.MIX_APP_URL)
     },
   },
 }

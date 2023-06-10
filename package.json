@@ -100,6 +100,7 @@
     "vue-toastification": "1.7.11",
     "vue-tour": "^1.5.0",
     "vue-tree-halower": "^1.8.3",
+    "vue2-editor": "^2.10.3",
     "vue2-leaflet": "^2.7.1",
     "vuedraggable": "^2.24.3",
     "vuejs-countdown": "^0.2.1",
