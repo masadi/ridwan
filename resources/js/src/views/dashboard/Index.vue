@@ -1,7 +1,7 @@
 <template>
   <b-card>
     <datatable :loading="loading_modal" :isBusy="isBusy" :items="items" :fields="fields" :meta="meta" @per_page="handlePerPage" @pagination="handlePagination" @search="handleSearch" @sort="handleSort" @action="handleAction" />
-    <b-modal ref="add-modal" size="lg" :title="title" @show="resetModal" @hidden="resetModal" @ok="handleOk" :ok-title="ok_title" cancel-title="Close">
+    <b-modal ref="add-modal" size="lg" :title="title" @ok="handleOk" :ok-title="ok_title" cancel-title="Close">
       <b-form @submit.prevent="handleSubmit">
         <b-row>
           <b-col cols="12">
