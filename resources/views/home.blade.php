@@ -9,7 +9,7 @@
             </ol>
             <h2>{{$data->title}}</h2>
         </div>
-    </section><!-- End Breadcrumbs -->
+    </section><!-- End Breadcrumbs 111-->
     @else
     <section id="breadcrumbs" class="breadcrumbs">
     </section>
