@@ -177,6 +177,7 @@ export default {
       return this.sideImg*/
     },
     appName(){
+      console.log('login:', app_name);
       return app_name;
     },
     logoUrl(){

@@ -112,6 +112,7 @@ export default {
   },
   computed: {
     appName(){
+      console.log(app_name);
       return app_name;
     },
   },

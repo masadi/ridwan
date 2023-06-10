@@ -85,6 +85,7 @@ export default {
       //this.$router.replace('/')
     },
     toHome() {
+      console.log('logout:', app_url);
       window.location.assign(app_url)
     },
   },
