@@ -110,6 +110,11 @@ export default {
       required: true,
     },
   },
+  computed: {
+    appName(){
+      return app_name;
+    },
+  },
   setup(props) {
     const {
       isMouseHovered,
@@ -134,7 +139,7 @@ export default {
     const collapseTogglerIconFeather = computed(() => (collapseTogglerIcon.value === 'unpinned' ? 'CircleIcon' : 'DiscIcon'))
 
     // App Name
-    const { appName, appLogoImage } = $themeConfig.app
+    const { appLogoImage } = $themeConfig.app
 
     return {
       perfectScrollbarSettings,
@@ -152,7 +157,6 @@ export default {
       skin,
 
       // App Name
-      appName,
       appLogoImage,
     }
   },

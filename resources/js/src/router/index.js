@@ -39,7 +39,7 @@ const router = new VueRouter({
 router.beforeEach((to, _, next) => {
   const isLoggedIn = isUserLoggedIn()
   const title = to.meta.pageTitle
-  document.title = process.env.MIX_APP_NAME
+  document.title = app_name
   if (title) {
     document.title = `${title} | ${document.title}`
   }
