@@ -56,4 +56,21 @@ class PageController extends Controller
         }
         return response()->json($data);
     }
+    public function destroy(){
+        $find = Page::find(request()->id);
+        if($find->delete()){
+            $data = [
+                'icon' => 'success',
+                'title' => 'Success!',
+                'text' => 'Page deleted!',
+            ];
+        } else {
+            $data = [
+                'icon' => 'error',
+                'title' => 'Failed!',
+                'text' => 'Page failed to delete. Please try again later!',
+            ];
+        }
+        return response()->json($data);
+    }
 }

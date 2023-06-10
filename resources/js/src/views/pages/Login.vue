@@ -73,12 +73,12 @@
               </b-button>
             </b-form>
           </validation-observer>
-          <b-card-text class="text-center mt-2">
+          <!--b-card-text class="text-center mt-2">
             <span>Penggguna Baru? </span>
             <b-link :to="{name:'auth-register'}">
               <span>&nbsp;Register Disini</span>
             </b-link>
-          </b-card-text>
+          </b-card-text-->
         </b-col>
       </b-col>
       <!-- /Login-->
