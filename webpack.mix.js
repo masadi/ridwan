@@ -57,6 +57,7 @@ mix
   .options({
     postCss: [require('autoprefixer'), require('postcss-rtl')],
   })
+  .version()
 mix.copy('resources/css/loader.css', 'public/css')
 
 // ------------------------------------------------
