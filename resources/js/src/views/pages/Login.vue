@@ -6,7 +6,7 @@
       <b-link class="brand-logo">
         <vuexy-logo />
         <h2 class="brand-text text-dark ml-1">
-          {{app.name}}
+          {{appName}}
         </h2>
       </b-link>
       <!-- /Brand logo-->
@@ -24,7 +24,7 @@
         <b-col sm="8" md="6" lg="12" class="px-xl-2 mx-auto">
           <div class="text-center">
             <b-card-title class="mb-1 font-weight-bold" title-tag="h1">
-              <b-img :src="logoUrl" style="height:28px" /> {{app.name}}
+              <b-img :src="logoUrl" style="height:28px" /> {{appName}}
             </b-card-title>
             <b-card-text class="my-1">
               Silahkan login untuk dapat mengakses Aplikasi
@@ -175,6 +175,9 @@ export default {
         return this.sideImg
       }
       return this.sideImg*/
+    },
+    appName(){
+      return app_name;
     },
     logoUrl(){
       return this.logoImg

@@ -85,7 +85,7 @@ export default {
       //this.$router.replace('/')
     },
     toHome() {
-      window.location.assign(process.env.MIX_APP_URL)
+      window.location.assign(app_url)
     },
   },
 }
