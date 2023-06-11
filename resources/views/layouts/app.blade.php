@@ -41,11 +41,10 @@
             </h1>
             <nav id="navbar" class="navbar">
                 <ul>
-                    @forelse (menu() as $item)
-                    <li><a class="nav-link {{(request()->path() == 'p/'.$item->slug) ? 'active' : ''}}" href="{{url('/p/'.$item->slug)}}">{{$item->title}}</a></li>
-                    @empty
-                    <li><a class="nav-link {{(request()->path() == '/') ? 'active' : ''}}" href="{{url('/')}}">Home</a></li>        
-                    @endforelse
+                    <li><a class="nav-link {{(request()->path() == '/') ? 'active' : ''}}" href="{{url('/')}}">Beranda</a></li>    
+                    @foreach (menu() as $item)
+                    <li><a class="nav-link {{(request()->path() == 'p/'.$item->slug) ? 'active' : ''}}" href="{{url('/p/'.$item->slug)}}">{{$item->title}}</a></li>    
+                    @endforeach
                     <li><a class="getstarted" href="/dashboard">Dashboard</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
