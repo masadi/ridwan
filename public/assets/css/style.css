@@ -1637,6 +1637,10 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
+  position: fixed;
+    /*height: 100px;*/
+    bottom: 0;
+    width: 100%;
   font-size: 14px;
   background: #059054;
 }

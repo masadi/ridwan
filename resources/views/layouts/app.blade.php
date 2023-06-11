@@ -55,9 +55,10 @@
     <main id="main">
         @yield('content')
     </main>
+    <div class="clearfix" style="margin-bottom:100px;"></div>
     <footer id="footer">
 
-        <div class="footer-newsletter">
+        <!--div class="footer-newsletter">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
@@ -121,7 +122,7 @@
 
                 </div>
             </div>
-        </div>
+        </div-->
 
         <div class="container footer-bottom clearfix">
             <div class="copyright">

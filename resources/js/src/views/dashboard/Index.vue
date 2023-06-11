@@ -12,7 +12,7 @@
           <b-col cols="12">
             <b-form-group label="Page Content" :invalid-feedback="feedback.content" :state="state.content">
               <!--b-form-input v-model="form.content" :state="state.content" /-->
-              <vue-editor v-model="form.content" :state="state.content" />
+              <vue-editor v-model="form.content" :state="state.content" :editorToolbar="customToolbar"/>
             </b-form-group>
           </b-col>
         </b-row>
@@ -27,7 +27,7 @@ import { BCard, BButton, BRow, BCol, BForm, BFormGroup, BFormInput, BOverlay, BA
 import Datatable from './Datatable.vue' //IMPORT COMPONENT DATATABLENYA
 //import socket from '@/services/socketService';
 import eventBus from '@core/utils/eventBus';
-import { VueEditor } from "vue2-editor";
+import { VueEditor, Quill } from "vue2-editor";
 export default {
   components: {
     BCard,
@@ -86,6 +86,19 @@ export default {
         title: '',
         content: '',
       },
+      customToolbar: [
+        [{ font: [] }],
+        [{ header: [false, 1, 2, 3, 4, 5, 6] }],
+        //["bold", "italic", "underline", "strike"],
+            [{ align: [] }],
+            ["blockquote", "code-block"],
+            [{ list: "ordered" }, { list: "bullet" }, { list: "check" }],
+            [{ indent: "-1" }, { indent: "+1" }],
+            [{ color: [] }, { background: [] }],
+            ["link", "image", "video"],
+            ["clean"],
+            ["showHtml"]
+      ],
     }
   },
   created() {

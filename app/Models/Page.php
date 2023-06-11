@@ -18,4 +18,9 @@ class Page extends Model
             ]
         ];
     }
+    public function getContentAttribute()
+	{
+		return htmlspecialchars_decode($this->attributes['content']);
+	}
+    //
 }
