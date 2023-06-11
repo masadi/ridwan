@@ -16,7 +16,7 @@
     @endif
     <section class="inner-page">
         <div class="container">
-            {!! $data ? $data->content : '' !!}
+            {!! $data ? str_replace('<img', '<img class="img-fluid"', $data->content) : '' !!}
         </div>
     </section>
 @endsection
