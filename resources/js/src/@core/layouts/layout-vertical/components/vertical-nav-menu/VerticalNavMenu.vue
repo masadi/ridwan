@@ -22,7 +22,7 @@
           <li class="nav-item mr-auto">
             <b-link
               class="navbar-brand"
-              :to="{name: 'beranda'}"
+              href="/"
             >
               <span class="brand-logo">
                 <b-img
