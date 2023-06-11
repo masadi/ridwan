@@ -64,10 +64,10 @@
               </b-form-group>
 
               <!-- submit buttons -->
-              <b-button type="submit" variant="primary" block :disabled="invalid" v-show="show">
+              <b-button type="submit" variant="success" block :disabled="invalid" v-show="show">
                 Login
               </b-button>
-              <b-button variant="primary" block disabled v-show="!show">
+              <b-button variant="success" block disabled v-show="!show">
                 <b-spinner small type="grow"></b-spinner>
                 Proses loggin...
               </b-button>
