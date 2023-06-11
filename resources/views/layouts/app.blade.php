@@ -35,8 +35,8 @@
         <div class="container d-flex align-items-center">
             <h1 class="logo me-auto">
                 <a href="{{url('/')}}">
-                    <img src="{{ asset('logo.png') }}" alt="" class="img-fluid">
-                   <span style="vertical-align:middle;">{{ config('app.name') }}</span>
+                    <img src="{{ asset('logo-top.png') }}" alt="" class="img-fluid">
+                   <!--span style="vertical-align:middle;">{{ config('app.name') }}</span-->
                 </a>
             </h1>
             <nav id="navbar" class="navbar">
