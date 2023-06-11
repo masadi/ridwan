@@ -1,4 +1,9 @@
 @extends('layouts.app')
+@section('title')
+@if($data)
+{{$data->title}}
+@endif
+@endsection
 @section('content')
     @if($data && $data->slug != 'home')
     <section id="breadcrumbs" class="breadcrumbs">
