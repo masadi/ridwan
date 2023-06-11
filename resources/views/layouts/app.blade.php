@@ -126,10 +126,10 @@
 
         <div class="container footer-bottom clearfix">
             <div class="copyright">
-                &copy; Hak Cipta <a href="{{url('/')}}" class="text-white"><strong><span>PT Link Data Sumber Barokah&trade; </span></strong></a>
+                &copy; <a href="{{url('/')}}" class="text-white"><strong><span>PT Link Data Sumber Barokah&trade; </span></strong></a>
             </div>
             <div class="credits">
-                Alamat: Ellak Daya Lenteng Sumenep
+                Ellak Daya Lenteng Sumenep
             </div>
         </div>
     </footer><!-- End Footer -->
