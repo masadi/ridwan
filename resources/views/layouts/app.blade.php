@@ -126,7 +126,7 @@
 
         <div class="container footer-bottom clearfix">
             <div class="copyright">
-                &copy; Copyright <strong><span>Arsha</span></strong>. All Rights Reserved
+                &copy; Hak Cipta <a href="{{url('/')}}" class="text-white"><strong><span>PT Link Data Sumber Barokah&trade; </span></strong></a>
             </div>
             <div class="credits">
                 <!-- All the links in the footer should remain intact. -->
