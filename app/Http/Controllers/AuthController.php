@@ -483,106 +483,20 @@ class AuthController extends Controller
             $validator = Validator::make(request()->all(), $rules, $message)->validated();
             $user->password = Hash::make(request()->password);
             if($user->save()){
-                if(request()->password == $user->username){
-                    $ability = [
-                        [
-                            'action' => 'read',
-                            'subject' => 'Web'
-                        ]
-                    ];
-                } else {
-                    if($user->hasRole('administrator')){
-                        $ability = [
-                            [
-                                'action' => 'read',
-                                'subject' => 'Web'
-                            ],
-                            [
-                                'action' => 'read',
-                                'subject' => 'Administrator'
-                            ],
-                            [
-                                'action' => 'read',
-                                'subject' => 'Referensi'
-                            ]
-                        ];
-                    } elseif($user->hasRole('disprov')){
-                        $ability = [
-                            [
-                                'action' => 'read',
-                                'subject' => 'Web'
-                            ],
-                            [
-                                'action' => 'read',
-                                'subject' => 'Disprov'
-                            ],
-                            [
-                                'action' => 'read',
-                                'subject' => 'Blangko'
-                            ],
-                            [
-                                'action' => 'read',
-                                'subject' => 'Referensi'
-                            ],
-                            [
-                                'action' => 'read',
-                                'subject' => 'Fire'
-                            ],
-                        ];
-                    }
-                    if($user->hasRole('diskab')){
-                        $ability = [
-                            [
-                                'action' => 'read',
-                                'subject' => 'Web'
-                            ],
-                            [
-                                'action' => 'read',
-                                'subject' => 'Diskab'
-                            ],
-                            [
-                                'action' => 'read',
-                                'subject' => 'Blangko'
-                            ],
-                            [
-                                'action' => 'read',
-                                'subject' => 'Referensi'
-                            ]
-                        ];
-                    }
-                    if($user->hasRole('sekolah')){
-                        $ability = [
-                            [
-                                'action' => 'read',
-                                'subject' => 'Web'
-                            ],
-                            [
-                                'action' => 'read',
-                                'subject' => 'Sekolah'
-                            ],
-                            [
-                                'action' => 'read',
-                                'subject' => 'Blangko'
-                            ],
-                            [
-                                'action' => 'read',
-                                'subject' => ($user->fire) ? 'Fire' : 'NotFire',
-                            ],
-                        ];
-                    }
-                    if($user->hasRole('verifikator')){ //alumni_aktif
-                        $ability = [
-                            [
-                                'action' => 'read',
-                                'subject' => 'Web'
-                            ],
-                            [
-                                'action' => 'read',
-                                'subject' => 'Verifikator'
-                            ]
-                        ];
-                    }
-                }
+                $user->ability = [
+                    [
+                        'action' => 'read',
+                        'subject' => 'Web'
+                    ],
+                    [
+                        'action' => 'read',
+                        'subject' => 'Administrator'
+                    ],
+                    [
+                        'action' => 'read',
+                        'subject' => 'Akses'
+                    ]
+                ];
                 $data = [
                     'icon' => 'success',
                     'title' => 'Berhasil!',
