@@ -16,7 +16,7 @@
     @endif
     <section class="inner-page">
         <div class="container">
-            {!! $data ? $data->content : '' !!}
+            {!! $data ? strip_tags($data->content, '<img><iframe>') : '' !!}
         </div>
     </section>
 @endsection
