@@ -19,6 +19,12 @@ Route::get('no-access', [PageController::class, 'no_access'])->name('login');
 Route::post('webhook', [PageController::class, 'webhook']);
 Route::get('/detil-mitra/{id}', [MitraController::class, 'detil']);
 Route::post('/filter-mitra', [MitraController::class, 'filter']);
+Route::group(['prefix' => 'wilayah'], function () {
+  Route::post('/provinsi', [MitraController::class, 'provinsi']);
+  Route::post('/kabupaten', [MitraController::class, 'kabupaten']);
+  Route::post('/kecamatan', [MitraController::class, 'kecamatan']);
+  Route::post('/desa', [MitraController::class, 'desa']);
+});
 Route::group(['prefix' => 'auth'], function () {
   Route::get('/semester', [AuthController::class, 'semester']);
   Route::post('login', [AuthController::class, 'login']);

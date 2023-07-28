@@ -142,4 +142,50 @@ class MitraController extends Controller
         $data = Mitra::find($id);
         return view('filter', ['data' => $data]);   
     }
+    public function register(){
+        request()->validate(
+            [
+                'nomor_registrasi' => 'required',
+                'nib' => 'required',
+                'npwp' => 'required',
+                'nama_perusahaan' => 'required',
+                'photo' => 'required|image|mimes:jpg,jpeg,png|max:1024',
+            ],
+            [
+                'nomor_registrasi.required' => 'Nomor Registrasi tidak boleh kosong!',
+                'nib.required' => 'NIB tidak boleh kosong!',
+                'npwp.required' => 'NPWP tidak boleh kosong!',
+                'nama_perusahaan.required' => 'Nama Perusahaan tidak boleh kosong!',
+                'photo.required' => 'File Logo tidak boleh kosong!',
+                'photo.image' => 'File Logo harus berubah gambar!',
+                'photo.mimes' => 'File Logo harus berekstensi JPG/JPEG/PNG!',
+                'photo.max' => 'Maksimal file Logo 1MB!',
+            ]
+        );
+        $logo = NULL;
+        if(request()->photo){
+            if (!File::isDirectory(storage_path('app/public/images'))) {
+                File::makeDirectory(storage_path('app/public/images'));
+            }
+            $photo = request()->photo->store('public/images');
+            $logo = basename($photo);
+        }
+        Mitra::create([
+            'nomor_registrasi' => request()->nomor_registrasi,
+            'nib' => request()->nib,
+            'npwp' => request()->npwp,
+            'nama_perusahaan' => request()->nama_perusahaan,
+            'brand' => request()->brand,
+            'alamat' => request()->alamat,
+            'provinsi_id' => request()->provinsi_id,
+            'kabupaten_id' => request()->kabupaten_id,
+            'kecamatan_id' => request()->kecamatan_id,
+            'desa_id' => request()->desa_id,
+            'telepon' => request()->telepon,
+            'email' => request()->email,
+            'website' => request()->website,
+            'logo' => $logo,
+        ]);
+        return back()->with('status', 'Registrasi Kemitraan berhasil! Data Mitra akan ditampilkan setelah di approve oleh Administrator'); 
+    }
 }

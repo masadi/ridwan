@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\MitraController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +15,7 @@ use App\Http\Controllers\PageController;
 |
 */
 Route::get('/', [PageController::class, 'index']);
+Route::post('/register', [MitraController::class, 'register']);
 Route::group(['prefix' => 'p'], function () {
     Route::get('/{slug}', [PageController::class, 'pages']);
 });

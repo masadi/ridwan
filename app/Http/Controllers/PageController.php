@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Page;
 use App\Models\Mitra;
+use App\Models\Provinsi;
 
 class PageController extends Controller
 {
@@ -15,7 +16,11 @@ class PageController extends Controller
     public function pages(){
         $data = Page::whereSlug(request()->route('slug'))->first();
         $mitra = ($data) ? Mitra::orderBy('id')->get() : NULL;
-        return view('home', ['data' => $data, 'mitra' => $mitra]);
+        $provinsi = [];
+        if($data && $data->type == 'mitra'){
+            $provinsi = Provinsi::orderBy('id')->get();
+        }
+        return view('home', ['data' => $data, 'mitra' => $mitra, 'provinsi' => $provinsi]);
     }
     public function list_data(){
         $data = Page::orderBy(request()->sortby, request()->sortbydesc)
