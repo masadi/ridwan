@@ -1,15 +1,60 @@
 <p>Logo Perusahaan</p>
 <p><img src="{{ $data->logo ? asset('storage/images/' . $data->logo) : '/no-logo.png' }}" class="img-fluid" alt="{{ $data->nama_perusahaan }}"></p>
-<p>NOMOR REGISTRASI : {{$data->nomor_registrasi}}</p>
-<p>NIB : {{$data->nib}}</p>
-<p>NPWP : {{$data->npwp}}</p>
-<p>NAMA PERUSAHAAN : {{$data->nama_perusahaan}}</p>
-<p>BRAND : {{$data->brand}}</p>
-<p>ALAMAT KANTOR : 	{{$data->alamat}}</p>
-<p>DESA : {{($data->desa) ? $data->desa->name : ''}}</p>
-<p>KEC	: {{($data->kecamatan) ? $data->kecamatan->name : ''}}</p>
-<p>KAB	: {{($data->kabupaten) ? $data->kabupaten->name : ''}}</p>
-<p>PROV : {{($data->provinsi) ? $data->provinsi->name : ''}}</p>
-<p>NOMOR TELPON/WA : {{$data->telepon}}</p>
-<p>EMAIL : {{$data->email}}</p>
-<p>WEBSITE : {{$data->website}}</p>
+<table class="table">
+    <tr>
+        <td width="30%"></td>
+        <td width="70%"></td>
+    </tr>
+    <tr>
+        <td>NOMOR REGISTRASI</td>
+        <td>: {{$data->nomor_registrasi}}</td>
+    </tr>
+    <tr>
+        <td>NIB</td>
+        <td>: {{$data->nib}}</td>
+    </tr>
+    <tr>
+        <td>NPWP</td>
+        <td>: {{$data->npwp}}</td>
+    </tr>
+    <tr>
+        <td>NAMA PERUSAHAAN</td>
+        <td>: {{$data->nama_perusahaan}}</td>
+    </tr>
+    <tr>
+        <td>BRAND</td>
+        <td>: {{$data->brand}}</td>
+    </tr>
+    <tr>
+        <td>ALAMAT KANTOR</td>
+        <td>: 	{{$data->alamat}}</td>
+    </tr>
+    <tr>
+        <td>DESA</td>
+        <td>: {{($data->desa) ? $data->desa->name: ''}}</td>
+    </tr>
+    <tr>
+        <td>KEC</td>
+        <td>: {{($data->kecamatan) ? $data->kecamatan->name : ''}}</td>
+    </tr>
+    <tr>
+        <td>KAB</td>
+        <td>{{($data->kabupaten) ? $data->kabupaten->name : ''}}</td>
+    </tr>
+    <tr>
+        <td>PROV</td>
+        <td>{{($data->provinsi) ? $data->provinsi->name : ''}}</td>
+    </tr>
+    <tr>
+        <td>NOMOR TELPON/WA</td>
+        <td>: {{$data->telepon}}</td>
+    </tr>
+    <tr>
+        <td>EMAIL</td>
+        <td>: {{$data->email}}</td>
+    </tr>
+    <tr>
+        <td>WEBSITE</td>
+        <td>: {{$data->website}}</td>
+    </tr>
+</table>
