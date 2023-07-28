@@ -57,7 +57,7 @@
                                     src="{{ $item->logo ? asset('storage/images/' . $item->logo) : '/no-logo.png' }}"
                                     class="img-thumbnail" alt="{{ $item->nama_perusahaan }}" width="200"></a>
                         @empty
-                            <h2 class="text-center">Tidak ada data untuk ditampilan</h2>
+                            <h2 class="text-center">Tidak ada data untuk ditampilkan</h2>
                         @endforelse
                     </div>
                 </div>
