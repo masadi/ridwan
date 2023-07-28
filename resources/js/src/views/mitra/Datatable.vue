@@ -16,8 +16,15 @@
             <strong>Loading...</strong>
           </div>
         </template>
+        <template v-slot:cell(status)="row">
+          <b-badge variant="success" v-if="row.item.status === 1">Approved</b-badge>
+          <b-badge variant="danger" v-if="row.item.status === 2">Declined</b-badge>
+          <b-badge variant="warning" v-if="row.item.status === 0">Waiting</b-badge>
+        </template>
         <template v-slot:cell(actions)="row">
           <a @click="getDetil(row.item, 'edit')"><b-icon-pencil-square variant="success" font-scale="1.5" />&nbsp;&nbsp;</a>
+          <a @click="getStatus(row.item, 'approve')" title="Approve"><b-icon-check2 variant="primary" font-scale="1.5" /></a>
+          <a @click="getStatus(row.item, 'decline')" title="Decline"><b-icon-x-lg variant="warning" font-scale="1.5" /></a>
           <a @click="getDetil(row.item, 'delete')"><b-icon-trash variant="danger" font-scale="1.5" /></a>
         </template>
       </b-table>
@@ -35,7 +42,7 @@
 
 <script>
 import _ from 'lodash' //IMPORT LODASH, DIMANA AKAN DIGUNAKAN UNTUK MEMBUAT DELAY KETIKA KOLOM PENCARIAN DIISI
-import { BRow, BCol, BFormInput, BFormSelect, BFormSelectOption, BTable, BSpinner, BPagination, BButton, BOverlay, BTooltip } from 'bootstrap-vue'
+import { BRow, BCol, BFormInput, BFormSelect, BFormSelectOption, BTable, BSpinner, BPagination, BButton, BOverlay, BTooltip, BBadge } from 'bootstrap-vue'
 import vSelect from 'vue-select'
 import bcrypt from 'bcryptjs';
 export default {
@@ -49,6 +56,7 @@ export default {
     BButton,
     BOverlay,
     BTooltip,
+    BBadge,
     vSelect,
   },
   props: {
@@ -95,6 +103,12 @@ export default {
   methods: {
     getDetil(item, aksi){
       this.$emit('action', {
+        item: item,
+        aksi: aksi,
+      })
+    },
+    getStatus(item, aksi){
+      this.$emit('status', {
         item: item,
         aksi: aksi,
       })

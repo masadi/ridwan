@@ -188,4 +188,40 @@ class MitraController extends Controller
         ]);
         return back()->with('status', 'Registrasi Kemitraan berhasil! Data Mitra akan ditampilkan setelah di approve oleh Administrator'); 
     }
+    public function approve(){
+        $find = Mitra::find(request()->mitra_id);
+        $find->status = 1;
+        if($find->save()){
+            $data = [
+                'icon' => 'success',
+                'title' => 'Success!',
+                'text' => 'Mitra approved!',
+            ];
+        } else {
+            $data = [
+                'icon' => 'error',
+                'title' => 'Failed!',
+                'text' => 'Mitra failed to approved. Please try again later!',
+            ];
+        }
+        return response()->json($data);        
+    }
+    public function decline(){
+        $find = Mitra::find(request()->mitra_id);
+        $find->status = 2;
+        if($find->save()){
+            $data = [
+                'icon' => 'success',
+                'title' => 'Success!',
+                'text' => 'Mitra declined!',
+            ];
+        } else {
+            $data = [
+                'icon' => 'error',
+                'title' => 'Failed!',
+                'text' => 'Mitra failed to declined. Please try again later!',
+            ];
+        }
+        return response()->json($data);        
+    }
 }

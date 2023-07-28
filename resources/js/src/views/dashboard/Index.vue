@@ -222,6 +222,7 @@ export default {
     handleAction(data){
       this.form.id = data.item.id
       this.form.title = data.item.title
+      this.form.type = data.item.type
       this.form.content = data.item.content
       if(data.aksi == 'edit'){
         this.title = 'Update Data'

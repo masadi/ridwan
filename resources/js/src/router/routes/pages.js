@@ -35,12 +35,12 @@ export default [
           active: true,
         },
       ],
-      tombol_add: {
+      /*tombol_add: {
         action: 'add-mitra',
         link: '',
         variant: 'success',
         text: 'Add New'
-      },
+      },*/
     },
   },
   {

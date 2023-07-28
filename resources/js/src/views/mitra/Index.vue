@@ -1,6 +1,6 @@
 <template>
   <b-card>
-    <datatable :loading="loading_modal" :isBusy="isBusy" :items="items" :fields="fields" :meta="meta" @per_page="handlePerPage" @pagination="handlePagination" @search="handleSearch" @sort="handleSort" @action="handleAction" />
+    <datatable :loading="loading_modal" :isBusy="isBusy" :items="items" :fields="fields" :meta="meta" @per_page="handlePerPage" @pagination="handlePagination" @search="handleSearch" @sort="handleSort" @action="handleAction" @status="handleStatus" />
     <b-modal ref="add-modal" size="xl" :title="title" @ok="handleOk" :ok-title="ok_title" cancel-title="Close">
       <b-form @submit.prevent="handleSubmit">
         <b-row>
@@ -157,6 +157,13 @@ export default {
           label: 'Email',
           sortable: true,
           thClass: 'text-center',
+        },
+        {
+          key: 'status',
+          label: 'Status',
+          sortable: true,
+          thClass: 'text-center',
+          tdClass: 'text-center'
         },
         {
           key: 'actions',
@@ -346,6 +353,41 @@ export default {
       if(data.aksi == 'delete'){
         this.handleDelete()
       }
+    },
+    handleStatus(data){
+      console.log(data);
+      this.$swal({
+        title: 'Apakah Anda yakin?',
+        text: 'Tindakan ini tidak dapat dikembalikan!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: data.aksi.charAt(0).toUpperCase() + data.aksi.slice(1),
+        customClass: {
+          confirmButton: 'btn btn-primary',
+          cancelButton: 'btn btn-outline-danger ml-1',
+        },
+        buttonsStyling: false,
+        allowOutsideClick: false,
+      }).then(result => {
+        if (result.value) {
+          this.$http.post(`/mitra/${data.aksi}`, {
+            mitra_id: data.item.id
+          }).then(response => {
+            let getData = response.data
+            this.$swal({
+              icon: getData.icon,
+              title: getData.title,
+              text: getData.text,
+              customClass: {
+                confirmButton: 'btn btn-success',
+              },
+            }).then(result => {
+              this.resetModal()
+              this.loadPostsData()
+            })
+          });
+        }
+      })
     },
     handleOk(bvModalEvent) {
       bvModalEvent.preventDefault()

@@ -48,6 +48,8 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('/kabupaten', [MitraController::class, 'kabupaten']);
     Route::post('/kecamatan', [MitraController::class, 'kecamatan']);
     Route::post('/desa', [MitraController::class, 'desa']);
+    Route::post('/approve', [MitraController::class, 'approve']);
+    Route::post('/decline', [MitraController::class, 'decline']);
   });
   Route::group(['prefix' => 'users'], function () {
     Route::get('/profil', [AuthController::class, 'profil']);

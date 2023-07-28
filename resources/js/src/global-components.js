@@ -29,6 +29,8 @@ import {
     faGear,
     faDollarSign,
     faCircleCheck,
+    faCheck,
+    faXmark,
 } from '@fortawesome/free-solid-svg-icons'
 library.add(
     faFacebook,
@@ -52,4 +54,6 @@ library.add(
     faGear,
     faDollarSign,
     faCircleCheck,
+    faCheck,
+    faXmark,
 )
