@@ -16,6 +16,7 @@ return new class extends Migration
             $table->char('kabupaten_id', 4)->nullable()->after('provinsi_id');
             $table->char('kecamatan_id', 7)->nullable()->after('kabupaten_id');
             $table->char('desa_id', 10)->nullable()->after('kecamatan_id');
+            $table->smallInteger('status')->nullable()->default(0);
             $table->foreign('provinsi_id')->references('code')->on(config('laravolt.indonesia.table_prefix').'provinces')->onUpdate('cascade')->onDelete('restrict');
             $table->foreign('kabupaten_id')->references('code')->on(config('laravolt.indonesia.table_prefix').'cities')->onUpdate('cascade')->onDelete('restrict');
             $table->foreign('kecamatan_id')->references('code')->on(config('laravolt.indonesia.table_prefix').'districts')->onUpdate('cascade')->onDelete('restrict');
@@ -33,7 +34,7 @@ return new class extends Migration
             $table->dropForeign(['kabupaten_id']);
             $table->dropForeign(['kecamatan_id']);
             $table->dropForeign(['desa_id']);
-            $table->dropColumn(['provinsi_id', 'kabupaten_id', 'kecamatan_id', 'desa_id']);
+            $table->dropColumn(['provinsi_id', 'kabupaten_id', 'kecamatan_id', 'desa_id', 'status']);
         });
     }
 };
