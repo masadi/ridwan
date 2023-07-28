@@ -24,8 +24,10 @@
             <?php
             $content = '';
             if ($data) {
-                $content = str_replace('<iframe', '<iframe class="me-4" style="float:left"', $data->content);
-                $content = str_replace('<img', '<img class="img-fluid"', $content);
+                if($data->type != 'mitra'){
+                    $content = str_replace('<iframe', '<iframe class="me-4" style="float:left"', $data->content);
+                    $content = str_replace('<img', '<img class="img-fluid"', $content);
+                }
             }
             ?>
             {!! $content !!}
