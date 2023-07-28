@@ -15,7 +15,7 @@ class PageController extends Controller
     }
     public function pages(){
         $data = Page::whereSlug(request()->route('slug'))->first();
-        $mitra = ($data) ? Mitra::orderBy('id')->get() : NULL;
+        $mitra = ($data) ? Mitra::where('status', 1)->orderBy('id')->get() : NULL;
         $provinsi = [];
         if($data && $data->type == 'mitra'){
             $provinsi = Provinsi::orderBy('id')->get();
