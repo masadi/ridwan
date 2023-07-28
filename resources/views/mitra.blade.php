@@ -30,19 +30,19 @@
         <td>: 	{{$data->alamat}}</td>
     </tr>
     <tr>
-        <td>DESA</td>
+        <td>DESA/KELURAHAN</td>
         <td>: {{($data->desa) ? $data->desa->name: ''}}</td>
     </tr>
     <tr>
-        <td>KEC</td>
+        <td>KECAMATAN</td>
         <td>: {{($data->kecamatan) ? $data->kecamatan->name : ''}}</td>
     </tr>
     <tr>
-        <td>KAB</td>
+        <td>KABUPATEN/KOTA</td>
         <td>{{($data->kabupaten) ? $data->kabupaten->name : ''}}</td>
     </tr>
     <tr>
-        <td>PROV</td>
+        <td>PROVINSI</td>
         <td>{{($data->provinsi) ? $data->provinsi->name : ''}}</td>
     </tr>
     <tr>
