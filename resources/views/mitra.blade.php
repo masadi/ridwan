@@ -22,7 +22,7 @@
         <td>: {{$data->nama_perusahaan}}</td>
     </tr>
     <tr>
-        <td>BRAND</td>
+        <td>NAMA MERK USAHA</td>
         <td>: {{$data->brand}}</td>
     </tr>
     <tr>
