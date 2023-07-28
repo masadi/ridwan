@@ -10,6 +10,15 @@
             </b-form-group>
           </b-col>
           <b-col cols="12">
+            <b-form-group label="Page Type" :invalid-feedback="feedback.type" :state="state.type">
+              <v-select id="type" v-model="form.type" :reduce="name => name.id" label="name" :options="data_type" placeholder="== Choose Page Type ==" :searchable="false" :state="state.type">
+                <template #no-options="{ search, searching, loading }">
+                  Tidak ada data untuk ditampilkan
+                </template>
+              </v-select>
+            </b-form-group>
+          </b-col>
+          <b-col cols="12" v-if="form.type == 'post'">
             <b-form-group label="Page Content" :invalid-feedback="feedback.content" :state="state.content">
               <!--b-form-input v-model="form.content" :state="state.content" /-->
               <vue-editor v-model="form.content" :state="state.content" :editorToolbar="customToolbar"/>
@@ -26,6 +35,7 @@
 import { BCard, BButton, BRow, BCol, BForm, BFormGroup, BFormInput, BOverlay, BAlert } from 'bootstrap-vue'
 import Datatable from './Datatable.vue' //IMPORT COMPONENT DATATABLENYA
 //import socket from '@/services/socketService';
+import vSelect from 'vue-select'
 import eventBus from '@core/utils/eventBus';
 import { VueEditor, Quill } from "vue2-editor";
 export default {
@@ -36,6 +46,7 @@ export default {
     BCol, 
     BForm, BFormGroup, BFormInput, BOverlay, BAlert,
     Datatable,
+    vSelect,
     VueEditor
   },
   data() {
@@ -76,14 +87,17 @@ export default {
       form: {
         id: '',
         title: '',
+        type: 'post',
         content: '',
       },
       state: {
         title: null,
+        type: null,
         content: null,
       },
       feedback: {
         title: '',
+        type: '',
         content: '',
       },
       customToolbar: [
@@ -98,6 +112,16 @@ export default {
             ["link", "image", "video"],
             ["clean"],
             ["showHtml"]
+      ],
+      data_type: [
+        {
+          id: 'post',
+          name: 'Post',
+        },
+        {
+          id: 'mitra',
+          name: 'Mitra',
+        }
       ],
     }
   },

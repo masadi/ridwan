@@ -22,6 +22,28 @@ export default [
     },
   },
   {
+    path: '/mitra',
+    name: 'mitra',
+    component: () => import('@/views/mitra/Index.vue'),
+    meta: {
+      resource: 'Web',
+      action: 'read',
+      pageTitle: 'Mitra',
+      breadcrumb: [
+        {
+          text: 'Mitra',
+          active: true,
+        },
+      ],
+      tombol_add: {
+        action: 'add-mitra',
+        link: '',
+        variant: 'success',
+        text: 'Add New'
+      },
+    },
+  },
+  {
     path: '/profile',
     name: 'profile',
     component: () => import('@/views/pages/Profile.vue'),

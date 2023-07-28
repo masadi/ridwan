@@ -7,6 +7,13 @@ export default [
         action: 'read',
     },
     {
+        icon: 'circle-check',
+        route: 'mitra',
+        title: 'Mitra',
+        resource: 'Web',
+        action: 'read',
+    },
+    {
         icon: 'user',
         route: 'profile',
         title: 'Profile',

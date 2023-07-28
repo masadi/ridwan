@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Page;
+use App\Models\Mitra;
 
 class PageController extends Controller
 {
@@ -13,7 +14,8 @@ class PageController extends Controller
     }
     public function pages(){
         $data = Page::whereSlug(request()->route('slug'))->first();
-        return view('home', ['data' => $data]);
+        $mitra = ($data) ? Mitra::orderBy('id')->get() : NULL;
+        return view('home', ['data' => $data, 'mitra' => $mitra]);
     }
     public function list_data(){
         $data = Page::orderBy(request()->sortby, request()->sortbydesc)
@@ -28,16 +30,18 @@ class PageController extends Controller
         $response = NULL;
         request()->validate([
             'title' => 'string|required',
-            'content' => 'string|required',
+            'type' => 'string|required',
         ]);
         if(request()->id){
             $find = Page::find(request()->id);
             $find->title = request()->title;
+            $find->type = request()->type;
             $find->content = request()->content;
             $insert = $find->save();
         } else {
             $insert = Page::create([
                 'title' => request()->title,
+                'type' => request()->type,
                 'content' => request()->content,
             ]);
         }
