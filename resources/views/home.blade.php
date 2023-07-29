@@ -64,7 +64,7 @@
                             <a href="javascript:void(0)" data-href="/api/detil-mitra/{{ $item->id }}"
                                 class="openPopup"><img
                                     src="{{ $item->logo ? asset('storage/images/' . $item->logo) : '/no-logo.png' }}"
-                                    class="img-thumbnail me-1" alt="{{ $item->nama_perusahaan }}" width="200"></a>
+                                    class="img-thumbnail me-2" alt="{{ $item->nama_perusahaan }}" width="200"></a>
                         @empty
                             <h2 class="text-center">Tidak ada data untuk ditampilkan</h2>
                         @endforelse
