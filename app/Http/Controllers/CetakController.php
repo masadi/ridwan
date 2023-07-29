@@ -33,6 +33,8 @@ class CetakController extends Controller
         $tplIdx = $pdf->getMpdf()->importPage(1);
         $pdf->getMpdf()->useTemplate($tplIdx);
         $satuan = view('cetak.document', compact('data'));
+        $pdf->getMpdf()->SetWatermarkImage('/img/wm.png');
+        $pdf->getMpdf()->showWatermarkImage = true;
         $pdf->getMpdf()->WriteHTML($satuan);
         return $pdf->stream('document.pdf');
     }
