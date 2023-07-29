@@ -25,7 +25,7 @@ class CetakController extends Controller
             'custom_font_dir' => public_path('templates-pdf/fonts/'), // don't forget the trailing slash!
             'custom_font_data' => $fonts,
             'default_font'         => 'arial-mt',
-            'margin_top' => 90,
+            'margin_top' => 30,
             'margin_left' => 10,
             'margin_right' => 10,
         ]);

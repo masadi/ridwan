@@ -1,6 +1,14 @@
 @extends('layouts.cetak')
 @section('content')
 <div class="text-center">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
   <p><strong>SERTIFIKAT KEMITRAAN</strong><br> Nomor : 000/03/A1/LDSB/15055/2023</p>
   <p>Telah terdaftar sebagai Mitra/Reseler PT LINK DATA SUMBER BAROKAH (BAROKAHNET) <i>Internet Service Provider</i> (ISP) di Kab. Sumenep</p>
   <br>
