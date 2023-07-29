@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\MitraController;
+use App\Http\Controllers\CetakController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +16,7 @@ use App\Http\Controllers\MitraController;
 |
 */
 Route::get('/', [PageController::class, 'index']);
+Route::get('/cetak', [CetakController::class, 'generate_pdf']);
 Route::post('/register', [MitraController::class, 'register']);
 Route::group(['prefix' => 'p'], function () {
     Route::get('/{slug}', [PageController::class, 'pages']);

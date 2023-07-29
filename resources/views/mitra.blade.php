@@ -27,7 +27,7 @@
     </tr>
     <tr>
         <td>ALAMAT KANTOR</td>
-        <td>: 	{{$data->alamat}}</td>
+        <td>: {{$data->alamat}}</td>
     </tr>
     <tr>
         <td>DESA/KELURAHAN</td>
@@ -39,11 +39,11 @@
     </tr>
     <tr>
         <td>KABUPATEN/KOTA</td>
-        <td>{{($data->kabupaten) ? $data->kabupaten->name : ''}}</td>
+        <td>: {{($data->kabupaten) ? $data->kabupaten->name : ''}}</td>
     </tr>
     <tr>
         <td>PROVINSI</td>
-        <td>{{($data->provinsi) ? $data->provinsi->name : ''}}</td>
+        <td>: {{($data->provinsi) ? $data->provinsi->name : ''}}</td>
     </tr>
     <tr>
         <td>NOMOR TELPON/WA</td>
