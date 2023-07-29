@@ -59,16 +59,15 @@
                 </div>
                 --}}
                 <div class="row mt-4" id="list_mitra" style="display: {{(session('status')) ? 'none' : 'block'}}">
-                    <div class="col">
-                        @forelse ($mitra as $item)
-                            <a href="javascript:void(0)" data-href="/api/detil-mitra/{{ $item->id }}"
-                                class="openPopup"><img
-                                    src="{{ $item->logo ? asset('storage/images/' . $item->logo) : '/no-logo.png' }}"
-                                    class="img-thumbnail" alt="{{ $item->nama_perusahaan }}" width="200"></a>
-                        @empty
-                            <h2 class="text-center">Tidak ada data untuk ditampilkan</h2>
-                        @endforelse
-                    </div>
+                    @forelse ($mitra as $item)
+                        <div class="col">
+                            <a href="javascript:void(0)" data-href="/api/detil-mitra/{{ $item->id }}" class="openPopup">
+                                <img src="{{ $item->logo ? asset('storage/images/' . $item->logo) : '/no-logo.png' }}" class="img-thumbnail" alt="{{ $item->nama_perusahaan }}" width="200">
+                            </a>
+                        </div>
+                    @empty
+                        <h2 class="text-center">Tidak ada data untuk ditampilkan</h2>
+                    @endforelse
                 </div>
                 <div class="row mt-4" id="form" style="display: {{($errors->any()) ? 'block' : 'none'}}">
                     <form action="/register" method="POST" enctype="multipart/form-data">
